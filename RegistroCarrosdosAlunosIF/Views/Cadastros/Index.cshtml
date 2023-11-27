@@ -1,0 +1,49 @@
+﻿@model List<Cadastros>
+@{
+    ViewData["Title"] = "LIstagem dos Cadastros";
+}
+
+<div class="d-grid gap-2 d-md-flex justify-content-md-start">
+    <a class="btn btn-primary" role="button" asp-controller="Cadastros" asp-action="Criar">Adicionar novo veículo</a>
+</div>
+<h1>Veículos Cadastrados</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Prontuário</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Curso</th>
+            <th scope="col">N. Placa</th>
+            <th scope="col">Modelo do Veiculo</th>
+         @*    <th scope="col">Hora Entrada</th>
+            <th scope="col">Hora Saída</th> *@
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if(Model != null && Model.Any())
+        {
+            foreach (Cadastros cadastros in Model)
+            {
+                <tr>
+                    <th scope="row">@cadastros.Prontuário</th>
+                    <td>@cadastros.Nome</td>
+                    <td>@cadastros.Curso</td>
+                    <td>@cadastros.Placa</td>
+                    <td>@cadastros.Modelo</td>
+                    @*   <td>mdo</td>
+                        <td>mdo</td> *@
+                    <td>
+                        <div class="btn-group" role="group">
+                            <a role="button" class="btn btn-primary" asp-route-id="@cadastros.Prontuário" asp-controller="Cadastros" asp-action="Editar">Editar</a>
+                            <a role="button" class=" btn btn-danger" asp-route-id="@cadastros.Prontuário" asp-controller="Cadastros" asp-action="ApagarConfirmacao">Apagar</a>
+                        </div>
+                    </td>
+                </tr>
+            }
+        }
+
+            
+        
+    </tbody>
+</table>

@@ -1,0 +1,73 @@
+﻿@model Cadastros
+@{
+    ViewData["Title"] = "Criar Cadastro";
+}
+<h1>Cadastrar Novo Veículo</h1>
+<form class="row g-3" asp-controller="Cadastros" asp-action="Criar" method="post">
+    <div class="col-md-6">
+        <label for="prontuario" class="form-label">Prontuário</label>
+        <input type="text" class="form-control" asp-for="Prontuário">
+    </div>
+    <div class="col-md-6">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" class="form-control" asp-for="Nome">
+    </div>
+    <div class="col-md-6">
+        <label for="cnh" class="form-label">CNH</label>
+        <input type="number" class="form-control" asp-for="CNH">
+    </div>
+    <div class="col-md-6">
+        <label for="email" class="form-label">E-mail</label>
+        <input type="email" class="form-control" asp-for="Email">
+    </div>
+    <div class="col-md-4">
+        <label for="modelo" class="form-label">Modelo do veículo</label>
+        <input type="text" class="form-control" asp-for="Modelo">
+    </div>
+    <div class="col-md-4">
+        <label for="cor" class="form-label">Cor</label>
+        <input type="text" class="form-control" asp-for="Cor">
+    </div>
+    <div class="col-md-4">
+        <label for="tipo" class="form-label">Tipo de veículo</label>
+        <select class="form-select" asp-for="Tipo">
+            <option selected>...</option>
+            <option>CARRO</option>
+            <option>MOTO</option> 
+            <option>VAN</option>
+        </select>
+    </div>
+    <div class="col-md-4">
+        <label for="placa" class="form-label">Placa do veículo</label>
+        <input type="text" class="form-control" asp-for="Placa">
+    </div>     
+    <div class="col-md-6">
+        <label for="curso" class="form-label">Curso</label>
+        <select class="form-select" asp-for="Curso">
+            <option selected>...</option>
+            <option>ADS</option>
+            <option>ENG. C_e_A</option>
+            <option>CTA</option>
+            <option>TURISMO</option>
+        </select>
+        </div>
+    <div class="col-md-6">
+        <label for="periodo" class="form-label">Período</label>
+        <select class="form-select" asp-for="Periodo">
+            <option selected>...</option>
+            <option>Matutino</option>
+            <option>Vespertino</option>
+            <option>Noturno</option>
+            <option>Integral</option>
+        </select>
+    </div>
+
+    <br />    
+
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <button class="btn btn-primary" type="submit">Cadastrar!</button>
+        <a class="btn btn-secondary" asp-controller="Cadastros" asp-action="Index" role="button">Voltar!</a>
+    </div>
+  
+ 
+</form>
