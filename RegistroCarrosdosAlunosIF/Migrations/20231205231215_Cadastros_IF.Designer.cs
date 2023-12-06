@@ -11,8 +11,8 @@ using RegistroCarrosdosAlunosIF.Dados;
 namespace RegistroCarrosdosAlunosIF.Migrations
 {
     [DbContext(typeof(CadastroDbContext))]
-    [Migration("20231127040046_CadastrosIF")]
-    partial class CadastrosIF
+    [Migration("20231205231215_Cadastros_IF")]
+    partial class Cadastros_IF
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,15 +27,18 @@ namespace RegistroCarrosdosAlunosIF.Migrations
             modelBuilder.Entity("RegistroCarrosdosAlunosIF.Models.Cadastros", b =>
                 {
                     b.Property<string>("Prontuário")
-                        .HasColumnType("varchar(20)");
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("Ano")
-                        .HasColumnType("int");
+                    b.Property<string>("Ano")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("CNH")
-                        .HasColumnType("int");
+                    b.Property<string>("CNH")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Cor")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Curso")
@@ -43,6 +46,10 @@ namespace RegistroCarrosdosAlunosIF.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Marca")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -54,22 +61,35 @@ namespace RegistroCarrosdosAlunosIF.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Periodo")
+                    b.Property<string>("Período")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Placa")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<int>("Telefone")
-                        .HasColumnType("int");
+                    b.Property<string>("Telefone")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Tipo")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Prontuário");
+
+                    b.HasIndex("CNH")
+                        .IsUnique();
+
+                    b.HasIndex("Email")
+                        .IsUnique();
+
+                    b.HasIndex("Placa")
+                        .IsUnique();
+
+                    b.HasIndex("Telefone")
+                        .IsUnique();
 
                     b.ToTable("Cadastros");
                 });

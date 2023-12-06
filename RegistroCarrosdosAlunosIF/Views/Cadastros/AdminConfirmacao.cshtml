@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Admin conf";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";    
+}
+
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="btn-danger btn-sm close-alert" arial-label="Close">X</button>
+        @TempData["MensagemErro"]
+    </div>
+}
+ 
+
+<div class="container-delete">
+    <div class="delete d-flex flex-column align-items-center">
+        <section class="intro">
+            <form class="row g-3" asp-controller="Cadastros" asp-action="Confirma" method="post">
+
+                <div class="container-delete">
+                    <div class="delete d-flex flex-column align-items-center">
+                        <h3 class="mb-5 mt-0"> Seja bem vindo, administrador!</h3>
+                        <h4 class="mb-5 mt-0">Para prosseguir, inserira o código de verificaçao!</h4>
+                        <div class="col-auto">
+                            <label for="inputPassword2" class="visually-hidden">Password</label>
+                            <input type="password" class="form-control" placeholder="Digite o código!" name="cd">
+                        </div>
+                        <br />
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-success mb-3">Verificar!</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </section>
+</div>
+</div>

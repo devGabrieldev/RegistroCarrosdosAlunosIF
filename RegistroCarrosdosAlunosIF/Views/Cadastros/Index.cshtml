@@ -1,49 +1,63 @@
 ﻿@model List<Cadastros>
 @{
-    ViewData["Title"] = "LIstagem dos Cadastros";
+    ViewData["Title"] = "Veículos Cadastrados"; 
 }
 
-<div class="d-grid gap-2 d-md-flex justify-content-md-start">
-    <a class="btn btn-primary" role="button" asp-controller="Cadastros" asp-action="Criar">Adicionar novo veículo</a>
-</div>
-<h1>Veículos Cadastrados</h1>
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">Prontuário</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Curso</th>
-            <th scope="col">N. Placa</th>
-            <th scope="col">Modelo do Veiculo</th>
-         @*    <th scope="col">Hora Entrada</th>
-            <th scope="col">Hora Saída</th> *@
-            <th scope="col"></th>
-        </tr>
-    </thead>
-    <tbody>
-        @if(Model != null && Model.Any())
-        {
-            foreach (Cadastros cadastros in Model)
+@if(TempData["MensagemSucesso"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        <button type="button" class="btn-danger btn-sm close-alert" arial-label="Close">X</button>
+        @TempData["MensagemSucesso"]
+    </div>
+}
+@if (TempData["MensagemErro"] != null)
+{        
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="btn-danger btn-sm close-alert" arial-label="Close">X</button>
+        @TempData["MensagemErro"]
+    </div>
+}
+<h1>@ViewData["Title"]</h1> <br />
+<div class="table-responsive">
+    <table class="table table-hover" id="Tabela_Cadastros">
+        <thead>
+            <tr>
+                <th scope="col">Prontuário</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Curso</th>
+                <th scope="col">Placa</th>
+                <th scope="col">Modelo</th>
+                <th scope="col">Tipo de Veículo</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
             {
-                <tr>
-                    <th scope="row">@cadastros.Prontuário</th>
-                    <td>@cadastros.Nome</td>
-                    <td>@cadastros.Curso</td>
-                    <td>@cadastros.Placa</td>
-                    <td>@cadastros.Modelo</td>
-                    @*   <td>mdo</td>
-                        <td>mdo</td> *@
-                    <td>
-                        <div class="btn-group" role="group">
-                            <a role="button" class="btn btn-primary" asp-route-id="@cadastros.Prontuário" asp-controller="Cadastros" asp-action="Editar">Editar</a>
-                            <a role="button" class=" btn btn-danger" asp-route-id="@cadastros.Prontuário" asp-controller="Cadastros" asp-action="ApagarConfirmacao">Apagar</a>
-                        </div>
-                    </td>
-                </tr>
-            }
-        }
+                foreach (Cadastros cadastros in Model)
+                {
+                    <tr>
+                        <td>@cadastros.Prontuário</td>
+                        <td>@cadastros.Nome</td>
+                        <td>@cadastros.Curso</td>
+                        <td>@cadastros.Placa</td>
+                        <td>@cadastros.Modelo</td>
+                        <td>@cadastros.Tipo</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" class="btn btn-primary" asp-route-prontuario="@cadastros.Prontuário" asp-controller="Cadastros" asp-action="Editar">Editar</a>
+                                <a role="button" class=" btn btn-danger" asp-route-prontuario="@cadastros.Prontuário" asp-controller="Cadastros" asp-action="ApagarConfirmacao">Apagar</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
 
-            
-        
-    </tbody>
-</table>
+            }
+        </tbody>
+    </table>
+</div>
+
+<br>
+<div class="d-grid gap-2 d-md-block mb-3" >
+    <a class="btn btn-primary" role="button" asp-controller="Cadastros" asp-action="Criar"> Adicionar novo veículo</a>
+</div>

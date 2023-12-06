@@ -2,11 +2,16 @@
 @{
     ViewData["Title"] = "Apagar Cadastro!";
 }
-<div> 
-    <h3>Realmente deseja apagar o cadastro de: ...</h3>
+<div class="container-delete">
+    <div class="delete d-flex flex-column align-items-center">
+        <h3 class="mb-5 mt-0">Realmente deseja apagar o cadastro de: @Model.Nome ??</h3>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <a class="btn btn-danger" role="button" asp-controller="Cadastros" asp-action="Apagar" asp-route-prontuario="@Model.Prontuário">SIM, CONFIRMAR EXCLUSÃO!</a>
+            <a class="btn btn-primary mt-3" role="button" asp-controller="Cadastros" asp-action="Index">NÃO, CANCELAR EXCLUSÃO!</a>
+        </div>
+    </div>
 </div>
-<br />
-<div class="d-grid gap-2 col-6 mx-auto">
-    <a class="btn btn-danger" role="button"  asp-controller="Cadastros" asp-action="Index">SIM, CONFIRMAR EXCLUSAO!</a>
-    <a class="btn btn-primary" role="button" asp-controller="Cadastros" asp-action="Index">NAO, CANCELAR EXCLUSAO!</a>
-</div>
+
+
+
+

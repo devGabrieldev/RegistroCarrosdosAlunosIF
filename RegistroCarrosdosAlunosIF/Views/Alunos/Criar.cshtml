@@ -1,9 +1,10 @@
 ﻿@model Cadastros
 @{
-    ViewData["Title"] = "Criar Cadastro";
+    ViewData["Title"] = "Criar Cadastro Aluno";
+    Layout = "~/Views/Shared/_Alunos_Layout.cshtml";
 }
-<h1>Cadastrar Novo Veículo</h1>
-<form class="row g-3" asp-controller="Cadastros" asp-action="Criar" method="post">   
+<h1>Realize seu cadastro!</h1>
+<form class="row g-3" asp-controller="Alunos" asp-action="Criar" method="post">
     <div class="col-md-6">
         <label for="prontuario" class="form-label">Prontuário</label>
         <input type="text" class="form-control" asp-for="Prontuário" pattern="[B-C]{2}[0-9]{7}" placeholder="Digite seu Porntuário: CBXXXX...">
@@ -33,7 +34,7 @@
         <label for="marca" class="form-label">Marca do veículo</label>        
         <select class="form-select" asp-for="Marca">
             <option selected>Selecione...</option>
-            <option>Audi</option>            
+            <option>Audi</option>
             <option>Agrale</option>
             <option>Dafra</option>
             <option>BMW</option>
@@ -43,7 +44,7 @@
             <option>Citroën</option>
             <option>Ducati</option>
             <option>DS</option>
-            <option>JAC Motors</option>        
+            <option>JAC Motors</option>
             <option>Fiat</option>
             <option>Ford</option>
             <option>General Motors</option>
@@ -60,18 +61,18 @@
             <option>Land Rover</option>
             <option>Lexus</option>
             <option>Marcopolo</option>
-            <option>Maserati</option>        
+            <option>Maserati</option>
             <option>Mercedez-Benz</option>
-            <option>MINI</option>            
+            <option>MINI</option>
             <option>Mitsubishi</option>
             <option>Nissan</option>
             <option>Peugeot</option>
-            <option>Porsche</option>            
+            <option>Porsche</option>
             <option>Renault</option>
             <option>Royal Enfield</option>
             <option>Smart</option>
             <option>Shineray</option>
-            <option>Suzuki</option>            
+            <option>Suzuki</option>
             <option>Tesla</option>
             <option>Toyota</option>
             <option>Triumph</option>
@@ -88,6 +89,7 @@
         <input type="text" class="form-control" asp-for="Modelo">
         @Html.ValidationMessageFor(x => x.Modelo)
     </div>
+
     <div class="col-md-4">
         <label for="ano" class="form-label">Ano do veículo</label>
         <input type="text" class="form-control" asp-for="Ano" min="1950-01-01" max="today" placeholder="Digite o ano do veiculo,ex: 2015">
@@ -106,7 +108,6 @@
             <option>CARRO</option>
             <option>MOTO</option>
             <option>VAN</option>
-
         </select>
         @Html.ValidationMessageFor(x => x.Tipo)
     </div>
@@ -145,8 +146,8 @@
     </div>
 
     <br />
-    <div class="d-grid gap-2 col-6 mx-auto mb-3">
-        <button class="btn btn-primary" type="submit">Cadastrar!</button>
-        <a class="btn btn-secondary" asp-controller="Cadastros" asp-action="Index" role="button">Voltar!</a>
+    <div class="d-grid gap-2 col-8 mx-auto mb-3">
+        <button class="btn btn-primary" type="submit" name="prontuario">Cadastrar!</button>        
     </div>
+
 </form>

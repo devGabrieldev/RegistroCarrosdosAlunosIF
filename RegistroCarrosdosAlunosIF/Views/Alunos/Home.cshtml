@@ -1,0 +1,86 @@
+﻿@model Cadastros
+@{
+    ViewData["Title"] = "Home Cadastro Aluno";
+    Layout = "~/Views/Shared/_Alunos_Layout.cshtml";
+}
+<br />
+@if (TempData["MensagemSucesso"] != null)
+{
+    <div class="alert alert-success" role="alert">
+        <button type="button" class="btn-danger btn-sm close-alert" arial-label="Close">X</button>
+        @TempData["MensagemSucesso"]
+    </div>
+}
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="btn-danger btn-sm close-alert" arial-label="Close">X</button>
+        @TempData["MensagemErro"]
+    </div>
+}
+<h1 class="text-center">Suas informações de cadastro!</h1>
+<h4 class="text-center">Para alterações em seu registro, favor consulte a secretaria!</h4>
+<form class="row g-2" asp-controller="Alunos" asp-action="Home" method="get">    
+    <div class="col-md-6">
+        <label for="prontuario" class="form-label">Prontuário</label>
+        <input type="text" readonly class="form-control" asp-for="Prontuário" value="@Model.Prontuário">
+        @Html.ValidationMessageFor(x => x.Prontuário)
+    </div>
+    <div class="col-md-6">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" readonly class="form-control" asp-for="Nome" value="@Model.Nome">
+        @Html.ValidationMessageFor(x => x.Nome)
+    </div>
+    <div class="col-md-6">
+        <label for="telefone" class="form-label">Telefone</label>
+        <input type="text" readonly class="form-control" asp-for="Telefone" value="@Model.Telefone">
+        @Html.ValidationMessageFor(x => x.Telefone)
+    </div>
+    <div class="col-md-6">
+        <label for="email" class="form-label">E-mail</label>
+        <input type="email" readonly class="form-control" asp-for="Email">
+        @Html.ValidationMessageFor(x => x.Email)
+    </div>
+    <div class="col-md-6">
+        <label for="cnh" class="form-label">CNH</label>
+        <input type="text" readonly class="form-control" asp-for="CNH" value="@Model.CNH">
+        @Html.ValidationMessageFor(x => x.CNH)
+    </div>
+    <div class="col-md-6">
+        <label for="modelo" class="form-label">Modelo do veículo</label>
+        <input type="text" readonly class="form-control" asp-for="Modelo" value="@Model.Modelo">
+        @Html.ValidationMessageFor(x => x.Modelo)
+    </div>
+    <div class="col-md-6">
+        <label for="ano" class="form-label">Ano do veículo</label>
+        <input type="text" readonly class="form-control" asp-for="Ano" min="1950-01-01" max="today" value="@Model.Ano">
+        @Html.ValidationMessageFor(x => x.Ano)
+    </div>
+
+    <div class="col-md-6">
+        <label for="cor" class="form-label">Cor</label>
+        <input type="text" readonly class="form-control" asp-for="Cor" value="@Model.Cor">
+        @Html.ValidationMessageFor(x => x.Cor)
+    </div>
+    <div class="col-md-6">
+        <label for="tipo" class="form-label">Tipo de veículo</label>
+        <input type="text" readonly class="form-control" asp-for="Tipo" value="@Model.Tipo">
+        @Html.ValidationMessageFor(x => x.Tipo)
+    </div>
+    <div class="col-md-6">
+        <label for="placa" class="form-label">Placa do veículo</label>
+        <input type="text" readonly class="form-control" asp-for="Placa" value="@Model.Placa">
+        @Html.ValidationMessageFor(x => x.Placa)
+    </div>
+    <div class="col-md-6">
+        <label for="curso" class="form-label">Curso</label>
+        <input readonly class="form-control" asp-for="Curso" value="@Model.Curso">
+       
+        @Html.ValidationMessageFor(x => x.Curso)
+    </div>
+    <div class="col-md-6">
+        <label for="periodo" class="form-label">Período do curso</label>
+        <input readonly class="form-control" asp-for="Período" value="@Model.Período">
+        @Html.ValidationMessageFor(x => x.Período)
+    </div>
+</form>

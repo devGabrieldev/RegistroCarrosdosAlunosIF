@@ -8,21 +8,22 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/RegistroCarrosdosAlunosIF.styles.css" asp-append-version="true" />
     <link href="https://cdn.datatables.net/v/bs5/dt-1.13.8/sc-2.3.0/datatables.min.css" rel="stylesheet">
-        
+
 </head>
 <body>
     <section class="intro-nav">
-    <header>        
+        <header>
+
             <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
                 <div class="container-fluid">
                     <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Controle de Estacionamento IFSP</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
-                    </button>               
+                    </button>    
                 </div>
-            </nav>     
-    </header>
+            </nav>
+        </header>
     </section>
 
     <div class="container">
@@ -30,11 +31,13 @@
             @RenderBody()
         </main>
     </div>
+
     <footer class="border-top footer text-muted">
-        <div class="container"><p>&copy; 2023 - Controle do Estacionamento IFSP - <a asp-area="" asp-controller="Home" asp-action="Sobre">Sobre!</a></div>
+        <div class="container">
+            <p>&copy; 2023 - Controle do Estacionamento IFSP - <a asp-area="" asp-controller="Home" asp-action="Sobre">Sobre!</a></p>
+            </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src=“https://code.jquery.com/jquery-3.7.1.min.js”></script>    
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/v/bs5/dt-1.13.8/sc-2.3.0/datatables.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

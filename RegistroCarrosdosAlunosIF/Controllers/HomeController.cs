@@ -5,15 +5,13 @@ using System.Diagnostics;
 namespace RegistroCarrosdosAlunosIF.Controllers
 {
     public class HomeController : Controller
-    {
-       
-
+    {     
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Sobre()
         {
             return View();
         }

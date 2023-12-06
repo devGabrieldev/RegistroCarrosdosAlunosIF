@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Aluno";
+    Layout = "~/Views/Shared/_Alunos_Layout.cshtml";
+}
+
+<div class="home">
+    <section class="intro">
+        <img class="logo" src="~/img/logo-ifsp.png" alt="Logo IFSP"> <br /> 
+        <h3> Seja bem vindo aluno!</h3><br />
+        <a role="button" class="btn btn-success btn-lg" asp-controller="Alunos" asp-action="Busca">Já possuo cadastro</a>
+        <a role="button" class="btn btn-success btn-lg" asp-controller="Alunos" asp-action="Criar">Não possuo cadastro</a>
+    </section>
+</div>

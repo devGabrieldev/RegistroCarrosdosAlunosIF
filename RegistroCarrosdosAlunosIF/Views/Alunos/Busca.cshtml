@@ -1,0 +1,64 @@
+﻿@model Cadastros
+@{
+    ViewData["Title"] = "Buscar meu cadastro";
+    Layout = "~/Views/Shared/_Alunos_Layout.cshtml";
+}
+
+@if (TempData["MensagemErro"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="btn-danger btn-sm close-alert" arial-label="Close">X</button>
+        @TempData["MensagemErro"]
+    </div>
+}
+
+<div class="home">
+  
+    <section class="intro">
+        <form asp-controller="Alunos" asp-action="Busca" method="post">
+            <h2 class="texto">Digite seu Pontuário!</h2>
+            <br />
+            <div class="input-group">
+                <span class="input-group-text">&#128269;</span>
+                <input type="text" class="form-control" placeholder="Digite seu Pontuário para busca!" name="prontuario">
+                <button class="btn btn-outline-success" type="submit">Buscar</button>
+            </div>
+        </form>
+       
+        @if (Model != null)
+        {
+           
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Prontuário</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Curso</th>
+                        <th scope="col">Placa</th>
+                        <th scope="col">Marca</th>
+                        <th scope="col">Modelo</th>
+                        <th scope="col">Tipo de Veículo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Model.Prontuário</td>
+                        <td>@Model.Nome</td>
+                        <td>@Model.Curso</td>
+                        <td>@Model.Placa</td>
+                        <td>@Model.Marca</td>
+                        <td>@Model.Modelo</td>
+                        <td>@Model.Tipo</td>
+                    </tr>
+                </tbody>
+            </table>
+            <a role="button" class=" btn btn-outline-success" asp-route-prontuario="@Model.Prontuário" asp-controller="Alunos" asp-action="Home">
+                Acessar cadastro completo<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-arrow-bar-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M6 8a.5.5 0 0 0 .5.5h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L12.293 7.5H6.5A.5.5 0 0 0 6 8m-2.5 7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5" />
+                </svg>
+            </a>
+
+        }         
+    </section>
+
+</div>

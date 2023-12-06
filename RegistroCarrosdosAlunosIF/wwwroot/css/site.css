@@ -8,6 +8,36 @@ html {
   }
 }
 
+@keyframes fade-up{
+    0% {
+        opacity: 0;
+        transform: translateY(30PX) scale(0.9);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(0px ) scale(1);
+    }
+}
+
+@keyframes fade-down {
+    0% {
+        opacity: 0;
+        transform: translateY(-30PX) scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px ) scale(1);
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
@@ -17,6 +47,138 @@ html {
   min-height: 100%;
 }
 
+footer a {
+    font-family:Arial;
+    color: #2a902a;
+    font-size: 20px;
+    text-decoration: none;
+    border-bottom: 1px solid #2a902a;
+    transition: border-bottom 0.3s ease;  Adiciona uma transição suave para o sublinhado 
+}
+
+    footer a:hover {
+        color: #045743;
+        border-bottom: 1px solid #045743;  Altera a cor do sublinhado ao passar o mouse 
+    }
+
+
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+}
+.close-alert{
+    position:absolute;
+    right: -10px;
+    top: -15px;
+    border-radius: 10px;
+    width: 30px;
+    height: 35px;
+}
+
+.home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+}
+
+.intro{
+    padding-top: 150px;
+    align-content: center;
+    justify-content: center;
+    text-align:center;
+    gap: 50px;    
+    animation: fade-up 2s;
+}
+
+.intro-nav {    
+    animation: fade-down 2s;
+}
+
+.logo {
+    width: 300px;
+    height: auto;
+    margin-bottom: 35px;   
+    display:  block;
+    margin: 0 auto;
+}
+.texto {
+    width: 610px;
+    flex-direction: column;
+    text-align: justify;
+    flex-wrap: wrap;
+    font: bolder 25px arial, verdana;
+    margin-top: 30px; 
+    text-align: center;
+    word-wrap: break-word;
+}
+
+/*.fade-in {
+    opacity: 1;
+    transition:ease
+}*/
+
+footer {
+    opacity:0;
+   animation: fadeIn 2.5s forwards;
+}
+
+@media screen and (max-width: 768px) {
+    .logo {
+        width: 50vw;
+    }
+
+    .texto {
+        width: auto;
+        word-wrap: break-word;
+    }
+
+    pre {
+        max-width: 100%;
+        overflow-x: auto;
+        white-space: pre-wrap;
+        max-height: 100vh;
+        overflow-y: auto;
+        font-size: 1em;
+    }
+    footer{
+        padding: 14px;
+        
+    }
+
+}
+.sobre {
+    font-size: 20px;
+    opacity: 0;
+    animation: fade-in 3s ease-in-out forwards;
+}
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.delete {
+    align-self: center;
+    width: 50rem;
+    height:30rem;
+    display: flex;
+    flex-direction: column;    
+    justify-content:center;
+    background-color: #fff;
+    padding: 3rem;
+    box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15);
+    margin-bottom: 2rem;
+}
+
+.container-delete{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
 }
