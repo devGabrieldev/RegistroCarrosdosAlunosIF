@@ -83,3 +83,9 @@ Essas seções de código e modelos oferecem uma visão geral do funcionamento d
 
 ![](/imgs/Screenshot_12.png "img12")
 ![](/imgs/Screenshot_13.png "img13")
+
+Este projeto foi realizado pelos alunos: Bruno Souza CB3025411;
+ Gabriel Afonso CB3026167;
+ Gabriel Ribeiro CB3021726;
+ Luan dos Santos CB3025977;
+ Pedro Perpétuo CB3021688.
